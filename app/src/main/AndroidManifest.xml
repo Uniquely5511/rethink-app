@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:versionCode="58"
-    android:versionName="v055v"> <!-- 54 for v055v -->
+    android:versionName="v055v">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED" />
@@ -15,19 +15,22 @@
     <!-- Allows applications to change network connectivity state -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    
+
     <!-- WiFi and Location permissions required for SSID access -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" tools:targetApi="29" />
-    
+    <uses-permission
+        android:name="android.permission.ACCESS_BACKGROUND_LOCATION"
+        tools:targetApi="29" />
+
     <!-- Android 11 introduces changes related to package visibility. These changes affect
-    apps only if they target Android 11.
-    https://developer.android.com/training/package-visibility -->
+         apps only if they target Android 11.
+         https://developer.android.com/training/package-visibility -->
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
+
     <!-- Allows the app to perform actions across different users on the device. -->
     <uses-permission
         android:name="android.permission.INTERACT_ACROSS_USERS"
@@ -62,21 +65,6 @@
                 android:value="true" />
             <meta-data
                 android:name="android.net.VpnService.SUPPORTS_LOCKDOWN"
-                android:value="true" />
-        </service>
-        <service
-            android:name=".service.BraveTileService"
-            android:exported="true"
-            android:icon="@drawable/shield_green"
-            android:label="@string/app_name"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-            tools:targetApi="24">
-            <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
                 android:value="true" />
         </service>
 
